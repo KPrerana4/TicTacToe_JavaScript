@@ -2,14 +2,19 @@ class Player
 {
     constructor(symbol, playerNo)
     {
-        this.symbol = symbol;
-        this.positions = [];
-        this.playerNo = playerNo;
+        this.#symbol = symbol;
+        this.#positions = [];
+        this.#playerNo = playerNo;
+    }
+
+    getSymbol()
+    {
+        return this.#symbol;
     }
 
     getPositions()
     {
-        return this.positions;
+        return this.#positions;
     }
 
     input()
@@ -18,9 +23,12 @@ class Player
         let position = 0;
         return position;
     }
-}
 
-p =new Player();
-console.log(p.age);
+    addPosition(position)
+    {
+        let length = this.#positions.length;
+        this.#positions[length - 1] = position;
+    }
+}
 
 module.exports = Player;

@@ -2,32 +2,32 @@ class Player
 {
     constructor(symbol, playerNo)
     {
-        this.#symbol = symbol;
-        this.#positions = [];
-        this.#playerNo = playerNo;
+        this.symbol = symbol;
+        this.playerNo = playerNo;
+        this.positions = [];
     }
 
     getSymbol()
     {
-        return this.#symbol;
+        return this.symbol;
     }
 
     getPositions()
     {
-        return this.#positions;
+        return this.positions;
     }
 
     input()
     {
-        //code for reading position
-        let position = 0;
+        let sentence = "Player " + (this.playerNo+1) + " position:";
+        let position = parseInt(require('readline-sync').question(sentence));
         return position;
     }
 
     addPosition(position)
     {
-        let length = this.#positions.length;
-        this.#positions[length - 1] = position;
+        let length = this.positions.length;
+        this.positions[length] = position;
     }
 }
 

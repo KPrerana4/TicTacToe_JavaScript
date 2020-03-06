@@ -1,34 +1,37 @@
 const Player = require('./Player');
 const Board = require('./Board');
-class Game
+class TicTacToe
 {
     constructor()
     {
         this.players = new Array(2);
-        console.log(this.players);
         this.players[0] = new Player('x',0);
         this.players[1] = new Player('O',1);
-        this.winningConditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+        this.winningConditions = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
         this.board = new Board(this.winningConditions);
-        this.currentPlayer = this.players[0];
+        this.currentPlayer = this.players[1];
     }
 
     start()
     {
         let win;
-        while(!win)
-        {
+        while(!win && !this.board.isBoardFilled()){
             win = this.play();
         }
-        console.log("Player " + this.currentPlayer.playerNo + " won");
+        let sentence = "Player " + (this.currentPlayer.playerNo + 1);
+        if(win == false)
+            sentence = "No one";
+        console.log(sentence + " won");
     }
 
     play()
     {
+        this.switchPlayer();
         let position = this.getValidPosition();
-        this.board.palceSymbol(position, this.currentPlayer.symbol);
+        this.board.placeSymbol(position, this.currentPlayer.symbol);
         this.currentPlayer.addPosition(position);
-        return winCheck(this.currentPlayer.getPositions());
+        this.board.printBoard();
+        return this.board.winCheck(this.currentPlayer.getPositions());
     }
 
     switchPlayer()
@@ -39,15 +42,15 @@ class Game
 
     getValidPosition()
     {
-        let valid;
+        let valid, position;
         do
         {
-            let position = this.currentPlayer.input();
+            position = this.currentPlayer.input();
             valid = this.board.validatePosition(position);
         }
-        while(!ivalid);
+        while(!valid);
         return position;
     }
 }
 
-module.exports = Game;
+module.exports = TicTacToe;

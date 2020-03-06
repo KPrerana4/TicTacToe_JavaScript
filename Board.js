@@ -1,20 +1,21 @@
 class Board
 {
-    Board(winningConditions)
+    constructor(winningConditions)
     {
         this.winningConditions = winningConditions;
         this.grid = new Array(9);
+        this.grid.fill('-');
     }
 
     validatePosition(position)
     {
         position -= 1;
-        return position >= 0 && position < 9 && this.grid[position] == undefined;
+        return position >= 0 && position < 9 && this.grid[position] == '-';
     }
 
     placeSymbol(position, symbol)
     {
-        this.grid[position - 1] = letter;
+        this.grid[position - 1] = symbol;
     }
 
     winCheck(positions)
@@ -22,28 +23,35 @@ class Board
 
         let index = 0, win;
         do{
-            win = isConditionSatisfied(position, winningConditions[index]);
-                index++;
+            win = this.isConditionPresent(positions, this.winningConditions[index]);
+            index++;
         }
-        while(win == false && index < winningConditions.length);
-        return win || !isBoardFilled();
+        while(win == false && index < this.winningConditions.length);
+        return win ;
     }
 
-    isConditionpresent(positions, condition)
+    isConditionPresent(positions, condition)
     {
         let count = 0;
         for(let index = 0; index < condition.length; index++)
         {
-            if(positions.includes(condition[index]))
+            if(positions.includes(condition[index])){
                  count++;
+            }
         }
-        if(count == condition.length)
-            return true;
+        return count == condition.length;
     }
 
     isBoardFilled()
     {
-        return !this.grid.includes(undefined);
+        return !this.grid.includes('-');
+    }
+
+    printBoard()
+    {
+        console.log(this.grid.slice(0,3));
+        console.log(this.grid.slice(3,6));
+        console.log(this.grid.slice(6,9));
     }
 }
 

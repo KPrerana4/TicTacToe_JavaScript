@@ -1,3 +1,4 @@
+const isSubset = require('./subSet.js');
 class Board
 {
     constructor(winningConditions)
@@ -20,26 +21,13 @@ class Board
 
     winCheck(positions)
     {
-
         let index = 0, win;
         do{
-            win = this.isConditionPresent(positions, this.winningConditions[index]);
+            win = isSubset(positions, this.winningConditions[index]);
             index++;
         }
         while(win == false && index < this.winningConditions.length);
         return win ;
-    }
-
-    isConditionPresent(positions, condition)
-    {
-        let count = 0;
-        for(let index = 0; index < condition.length; index++)
-        {
-            if(positions.includes(condition[index])){
-                 count++;
-            }
-        }
-        return count == condition.length;
     }
 
     isBoardFilled()

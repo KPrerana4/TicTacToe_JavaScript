@@ -49,12 +49,19 @@ class TicTacToe
     {
         let valid, position;
         do{
-            position = this.currentPlayer.input();
+            position = this.getPosition();
             valid = this.board.validatePosition(position);
         }
         while(!valid);
         return position;
     }
+
+    getPosition()
+    {
+        let sentence = "Player " + (this.currentPlayer.playerNo+1) + " position:";
+        return parseInt(require('readline-sync').question(sentence));
+    }
+
 }
 
 module.exports = TicTacToe;

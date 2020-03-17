@@ -1,4 +1,3 @@
-const isSubset = require('./subSet.js');
 class Board
 {
     constructor(winningConditions)
@@ -10,24 +9,19 @@ class Board
 
     validatePosition(position)
     {
-        position -= 1;
         return position >= 0 && position < 9 && this.grid[position] == '-';
     }
 
     placeSymbol(position, symbol)
     {
-        this.grid[position - 1] = symbol;
+        this.grid[position] = symbol;
     }
 
-    winCheck(positions)
+    winCheck()
     {
-        let index = 0, win;
-        do{
-            win = isSubset(positions, this.winningConditions[index]);
-            index++;
-        }
-        while(win == false && index < this.winningConditions.length);
-        return win ;
+        return this.winningConditions.some((element) => {
+            return ((this.grid[element[0]] == this.grid[element[1]]) && (this.grid[element[1]] == this.grid[element[2]]) && (this.grid[element[0]] != '-'));
+        },this.grid);
     }
 
     isBoardFilled()

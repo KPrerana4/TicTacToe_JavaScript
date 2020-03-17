@@ -5,7 +5,7 @@ class TicTacToe
     constructor()
     {
         this.players = [new Player('x',0) , new Player('O',1)];
-        this.winningConditions = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
+        this.winningConditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
         this.board = new Board(this.winningConditions);
         this.currentPlayer = this.players[0];
     }
@@ -34,9 +34,8 @@ class TicTacToe
     {
         let position = this.getValidPosition();
         this.board.placeSymbol(position, this.currentPlayer.symbol);
-        this.currentPlayer.addPosition(position);
         this.board.printBoard();
-        return this.board.winCheck(this.currentPlayer.getPositions());
+        return this.board.winCheck();
     }
 
     switchPlayer()
@@ -59,7 +58,7 @@ class TicTacToe
     getPosition()
     {
         let sentence = "Player " + (this.currentPlayer.playerNo+1) + " position:";
-        return parseInt(require('readline-sync').question(sentence));
+        return parseInt(require('readline-sync').question(sentence)) - 1;
     }
 
 }

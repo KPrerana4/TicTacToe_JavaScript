@@ -3,8 +3,7 @@ class Board
     constructor(winningConditions)
     {
         this.winningConditions = winningConditions;
-        this.grid = new Array(9);
-        this.grid.fill('-');
+        this.grid = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
     }
 
     validatePosition(position)

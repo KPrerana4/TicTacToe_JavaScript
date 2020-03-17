@@ -4,7 +4,6 @@ class Player
     {
         this.symbol = symbol;
         this.playerNo = playerNo;
-        this.positions = [];
     }
 
     getSymbol()
@@ -17,11 +16,6 @@ class Player
         return this.positions;
     }
 
-    addPosition(position)
-    {
-        let length = this.positions.length;
-        this.positions[length] = position;
-    }
 }
 
 module.exports = Player;

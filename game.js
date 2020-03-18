@@ -1,25 +1,24 @@
 var count = 0;
 var win = false;
-function set(number)
+function game(buttonId)
 {
     if(win == true)
        return;
-    let button = document.getElementById(number);
-    if(button.innerHTML == ' ')
-    {
-        if(count % 2 == 0)
-            button.innerHTML = 'x';
-        else
-            button.innerHTML = 'O';
-        count++;
-
-        let grid = getGrid();
-        win = winCheck(grid);
-        if(win)
-            document.getElementById("result").innerHTML = "You Won";
-        else if(isBoardFilled(grid))
-            document.getElementById("result").innerHTML = "No one Won";
+    if(setSymbol(buttonId)){
+        win = winCheck(getGrid());
+        printWinner();
     }
+}
+
+function setSymbol(buttonId)
+{
+    let button = document.getElementById(buttonId);
+    if(button.innerHTML == ' '){
+        button.innerHTML = (count % 2 == 0) ? 'X' : 'O';
+        count++;
+        return true
+    }
+    return false;
 }
 
 function winCheck(grid)
@@ -41,4 +40,12 @@ function getGrid()
 function isBoardFilled(grid)
 {
     return !grid.includes(' ');
+}
+
+function printWinner()
+{
+    if(win)
+        document.getElementById("result").innerHTML = "You Won";
+    else if(isBoardFilled(grid))
+        document.getElementById("result").innerHTML = "No one Won";
 }

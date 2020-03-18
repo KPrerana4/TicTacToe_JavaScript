@@ -6,6 +6,7 @@ function game(buttonId)
        return;
     if(setSymbol(buttonId)){
         win = winCheck(getGrid());
+        //alert(win);
         printWinner();
     }
 }
@@ -46,6 +47,6 @@ function printWinner()
 {
     if(win)
         document.getElementById("result").innerHTML = "You Won";
-    else if(isBoardFilled(grid))
+    else if(isBoardFilled(getGrid()))
         document.getElementById("result").innerHTML = "No one Won";
 }

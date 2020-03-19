@@ -3,24 +3,19 @@
     <title>
         TicTacToe
     </title>
-
-    <style>
-        button{
-            height:130px;
-            width:130px;
-            font-size:30px;
-        }
-        p{
-            font-size:28px;
-            color:blue;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="styling.css">
 </head>
 
 <body>
 <center>
     <br>
     <h1>TicTacToe Game</h1>
+    <br>
+    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)">
+    <input id="player2Symbol" type="text" placeholder="Enter symbol(for player2)">
+    <br>
+    <p id="message"> </p>
+    <br>
     <br>
     <table>
         <tr>
@@ -41,10 +36,26 @@
     </table>
     <br>
     <p id="result"></p>
-    <button style="height:45px;width:55px;font-size:15px;"><a href="index.html">Reset</a></button>
+    <button class="reset"><a href="index.html">Reset</a></button>
 </center>
 </body>
 
-<script src="game.js">
+<!--<script src="game.js"></script>-->
+<script src="Board.js"></script>
+<script src="Player.js"></script>
+<script src="TicTacToe.js"></script>
+
+<script>
+    var count = 0;
+    [player1Symbol, player2Symbol] = ['X','O'];
+    var ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
+
+    function game(position)
+    {
+        if(document.getElementById(position).innerHTML != ' ')
+            return;
+        ticTacToe.start(position);
+    }
 </script>
+
 </html>

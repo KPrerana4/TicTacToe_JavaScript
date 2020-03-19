@@ -10,12 +10,4 @@ class Player
     {
         return this.symbol;
     }
-
-    getPositions()
-    {
-        return this.positions;
-    }
-
 }
-
-module.exports = Player;

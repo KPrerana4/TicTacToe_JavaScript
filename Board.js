@@ -1,14 +1,15 @@
 class Board
 {
-
     constructor(winningConditions)
     {
         this.winningConditions = winningConditions;
     }
 
-    placeSymbol(position, symbol)
+    placeSymbol(position, symbol, playerNo)
     {
         document.getElementById(position).innerHTML = symbol;
+        let symbolColor = playerNo == 0 ? "red" : "green";
+        document.getElementById(position).style.color = symbolColor;
     }
 
     winCheck()

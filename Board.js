@@ -1,39 +1,37 @@
 class Board
 {
+
     constructor(winningConditions)
     {
         this.winningConditions = winningConditions;
-        this.grid = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
-    }
-
-    validatePosition(position)
-    {
-        return position >= 0 && position < 9 && this.grid[position] == '-';
     }
 
     placeSymbol(position, symbol)
     {
-        this.grid[position] = symbol;
+        document.getElementById(position).innerHTML = symbol;
     }
 
     winCheck()
     {
+        let grid = this.getGrid();
         return this.winningConditions.some((element) => {
-            return ((this.grid[element[0]] == this.grid[element[1]]) && (this.grid[element[1]] == this.grid[element[2]]) && (this.grid[element[0]] != '-'));
-        },this.grid);
+            return ((grid[element[0]] == grid[element[1]]) && (grid[element[1]] == grid[element[2]]) && (grid[element[0]] != ' '));
+        },grid);
     }
 
     isBoardFilled()
     {
-        return !this.grid.includes('-');
+        let grid = this.getGrid();
+        return !grid.includes(' ');
     }
 
-    printBoard()
+    getGrid()
     {
-        console.log(this.grid.slice(0,3));
-        console.log(this.grid.slice(3,6));
-        console.log(this.grid.slice(6,9));
+        let grid = [];
+        for(let position = 0; position < 9 ;position++)
+        {
+            grid[position] = document.getElementById(position).innerHTML;
+        }
+        return grid;
     }
 }
-
-module.exports = Board;

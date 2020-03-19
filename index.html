@@ -8,14 +8,28 @@
 
 <body>
 <center>
-    <h1>TicTacToe Game</h1>
-    <br>
-    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)" size="30">
+    <font size="35"><b>TicTacToe Game</b></font><br>
+    <br><br>
+    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
     <input id="player2Symbol" type="text" placeholder="Enter symbol(for player2)" size="30">
     <br>
     <p id="message"> </p>
     <br>
-    <button onclick="start()" class="normal">Start</button>
+    <button onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
+    <button onclick="rules()" class="normal"><b>Rules</b></button>
+    <div class="rulesList" id="list">
+        <ol>
+            <li>Player can enter symbols which they want.</li>
+            <li>If symbols are entered or if they are invalid symbols then 'X' and 'O' are choosen as symbols for player1 and player2 respectively.</li>
+            <li>Player has to click on start button to start the game.</li>
+            <li>After clicking on start they get a board to play.</li>
+            <li>They has to click on the cell in which they want to place their symbol.</li>
+            <li>If the whole board is full and none of the players has won then "No one Won" message is displayed, otherwise winning message is displayed.</li>
+            <li>Winning condition is all cells in row or column or diagonal should have same symbol.</li>
+        </ol>
+        <button class="normal" onclick="closeRules()">close</button>
+    </div>
+
     <br>
     <br>
     <div id="board">
@@ -38,7 +52,7 @@
       </table>
     <br>
     <p id="result"></p>
-    <button onclick="reset()" class="normal">Reset</button>
+    <button onclick="reset()" class="normal"><b>Reset</b></button>
     </div>
 </center>
 </body>

@@ -51,3 +51,13 @@ function reset()
     ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
     document.getElementById("result").innerHTML = "";
 }
+
+function rules()
+{
+    document.getElementById("list").style.display = "block";
+}
+
+function closeRules()
+{
+    document.getElementById("list").style.display = "none";
+}

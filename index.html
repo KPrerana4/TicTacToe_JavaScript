@@ -8,64 +8,100 @@
 
 <body>
 <center>
-    <br>
     <h1>TicTacToe Game</h1>
     <br>
-    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)">
-    <input id="player2Symbol" type="text" placeholder="Enter symbol(for player2)">
+    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)" size="30">
+    <input id="player2Symbol" type="text" placeholder="Enter symbol(for player2)" size="30">
     <br>
     <p id="message"> </p>
     <br>
+    <button onclick="start()" class="normal">Start</button>
     <br>
-    <table>
+    <br>
+    <div id="board">
+      <table>
         <tr>
-            <td><button id="0" onclick="game(this.id)"> </button></td>
-            <td><button id="1" onclick="game(this.id)"> </button></td>
-            <td><button id="2" onclick="game(this.id)"> </button></td>
+            <td><button id="0"> </button></td>
+            <td><button id="1"> </button></td>
+            <td><button id="2"> </button></td>
         </tr>
         <tr>
-            <td><button id="3" onclick="game(this.id)"> </button></td>
-            <td><button id="4" onclick="game(this.id)"> </button></td>
-            <td><button id="5" onclick="game(this.id)"> </button></td>
+            <td><button id="3"> </button></td>
+            <td><button id="4"> </button></td>
+            <td><button id="5"> </button></td>
         </tr>
         <tr>
-            <td><button id="6" onclick="game(this.id)"> </button></td>
-            <td><button id="7" onclick="game(this.id)"> </button></td>
-            <td><button id="8" onclick="game(this.id)"> </button></td>
+            <td><button id="6"> </button></td>
+            <td><button id="7"> </button></td>
+            <td><button id="8"> </button></td>
         </tr>
-    </table>
+      </table>
     <br>
     <p id="result"></p>
-    <button class="reset"><a href="index.html">Reset</a></button>
+    <button onclick="reset()" class="normal">Reset</button>
+    </div>
 </center>
 </body>
 
 <!--<script src="game.js"></script>-->
+<script src="TicTacToe.js"></script>
 <script src="Board.js"></script>
 <script src="Player.js"></script>
-<script src="TicTacToe.js"></script>
+
 
 <script>
-    var count = 0;
-    [player1Symbol, player2Symbol] = getValidSymbols();
-    var ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
+    var player1Symbol, player2Symbol;
+    var ticTacToe;
 
-    function game(position)
+    for(let position = 0; position < 9 ; position++)
     {
+        document.getElementById(position).addEventListener("click", game);
+    }
+
+    function game()
+    {
+        let position = event.target.id;
         if(document.getElementById(position).innerHTML != ' ')
             return;
         ticTacToe.start(position);
     }
 
+    function start()
+    {
+        getValidSymbols();
+        ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
+        document.getElementById("board").style.display = "block";
+    }
+
     function getValidSymbols()
     {
-        let player1Symbol = document.getElementById("player1Symbol").value;
-        let player2Symbol = document.getElementById("player2Symbol").value;
-        if(player2Symbol == '' || player1Symbol == '' || player2Symbol == player1Symbol){
-            document.getElementById("message").innerHTML = "As symbols are invalid 'X' and 'O' are choosen";
-        return ['X','O'];
+        player1Symbol = document.getElementById("player1Symbol").value;
+        player2Symbol = document.getElementById("player2Symbol").value;
+        if(areSymbolsInvalid())
+            [player1Symbol, player2Symbol] = ['X', 'O'];
+        document.getElementById("player1Symbol").disabled = true;
+        document.getElementById("player2Symbol").disabled = true;
+    }
+
+    function areSymbolsInvalid()
+    {
+        if(player2Symbol == '' || player1Symbol == '' || player2Symbol == player1Symbol)
+        {
+            let sentence = "Both symbols has to be valid, as they are invalid 'X' and 'O' are choosen";
+            document.getElementById("message").innerHTML = sentence;
+            return true;
         }
-        return [player1Symbol, player2Symbol];
+        return false;
+    }
+
+    function reset()
+    {
+        for(let position = 0; position < 9; position++)
+        {
+            document.getElementById(position).innerHTML = " ";
+        }
+        ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
+        document.getElementById("result").innerHTML = "";
     }
 
 </script>

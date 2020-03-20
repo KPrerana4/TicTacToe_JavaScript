@@ -5,6 +5,7 @@ class TicTacToe
         this.players = [new Player(player1Symbol,0) , new Player(player2Symbol,1)];
         this.winningConditions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
         this.board = new Board(this.winningConditions);
+        this.view = new View();
         this.currentPlayer = this.players[0];
         this.win = false;
     }
@@ -14,21 +15,24 @@ class TicTacToe
         if(this.win)
             return;
         this.win = this.play(position);
-        this.printWinner(this.win);
+        this.view.printWinner(this.getResult());
         this.switchPlayer();
+        this.view.printCurrentPlayerSymbol(this.currentPlayer.symbol);
     }
 
-    printWinner(win)
+    getResult()
     {
-        if(win)
-            document.getElementById("result").innerHTML = "You Won";
+        let result = "";
+        if(this.win)
+            result = "player with symbol \'" + this.currentPlayer.symbol + "\' has Won";
         else if(this.board.isBoardFilled())
-            document.getElementById("result").innerHTML = "No one Won";
+            result = "No one Won";
+        return result;
     }
 
     play(position)
     {
-        this.board.placeSymbol(position, this.currentPlayer.symbol);
+        this.view.placeSymbol(position, this.currentPlayer.symbol, this.currentPlayer.playerNo);
         return this.board.winCheck();
     }
 

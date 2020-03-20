@@ -8,19 +8,20 @@
 
 <body>
 <center>
-    <font size="35"><b>TicTacToe Game</b></font><br>
+    <font size="35"><b>TicTacToe</b></font><br>
     <br><br>
-    <input id="player1Symbol" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
-    <input id="player2Symbol" type="text" placeholder="Enter symbol(for player2)" size="30">
+    <input id="player1Symbol" onchange="getValidSymbol(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
+    <input id="player2Symbol" onchange="getValidSymbol(this.id)" type="text" placeholder="Enter symbol(for player2)" size="30">
     <br>
     <p id="message"> </p>
     <br>
     <button onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
     <button onclick="rules()" class="normal"><b>Rules</b></button>
     <div class="rulesList" id="list">
+        <font size="5px;"><u>Rules</u></font>
         <ol>
             <li>Player can enter symbols which they want.</li>
-            <li>If symbols are entered or if they are invalid symbols then 'X' and 'O' are choosen as symbols for player1 and player2 respectively.</li>
+            <li>Valid symbols means both symbols has to be different and should not be in ['',' '].</li>
             <li>Player has to click on start button to start the game.</li>
             <li>After clicking on start they get a board to play.</li>
             <li>They has to click on the cell in which they want to place their symbol.</li>
@@ -31,6 +32,8 @@
     </div>
 
     <br>
+    <br>
+    <p id="currentPlayerSymbol"> </p>
     <br>
     <div id="board">
       <table>
@@ -58,6 +61,7 @@
 </body>
 
 <script src="game.js"></script>
+<script src="view.js"></script>
 <script src="TicTacToe.js"></script>
 <script src="Board.js"></script>
 <script src="Player.js"></script>

@@ -16,30 +16,30 @@ function game()
 
 function start()
 {
-    getValidSymbols();
+    if(!areSymbolsValid())
+        return;
+    disableFields();
     ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
     document.getElementById("board").style.display = "block";
+    document.getElementById("currentPlayerSymbol").innerHTML = "Current player symbol:"+player1Symbol;
 }
 
-function getValidSymbols()
+function areSymbolsValid()
 {
     player1Symbol = document.getElementById("player1Symbol").value;
     player2Symbol = document.getElementById("player2Symbol").value;
-    if(areSymbolsInvalid())
-        [player1Symbol, player2Symbol] = ['X', 'O'];
-    document.getElementById("player1Symbol").disabled = true;
-    document.getElementById("player2Symbol").disabled = true;
+    if(player1Symbol == '' || player2Symbol == ''){
+        document.getElementById("message").innerHTML = "Enter valid symbols";
+        return false;
+    }
+    return true;
 }
 
-function areSymbolsInvalid()
+function disableFields()
 {
-    if(player2Symbol == '' || player1Symbol == '' || player2Symbol == player1Symbol)
-    {
-        let sentence = "Both symbols has to be valid, as they are invalid 'X' and 'O' are choosen";
-        document.getElementById("message").innerHTML = sentence;
-        return true;
-    }
-    return false;
+    document.getElementById("message").style.display = 'none';
+    document.getElementById("player1Symbol").disabled = true;
+    document.getElementById("player2Symbol").disabled = true;
 }
 
 function reset()
@@ -60,4 +60,19 @@ function rules()
 function closeRules()
 {
     document.getElementById("list").style.display = "none";
+}
+
+function getValidSymbol(id)
+{
+    let symbolReference = document.getElementById(id);
+    if(document.getElementById("player2Symbol").value == document.getElementById("player1Symbol").value)
+    {
+        symbolReference.value = '';
+        symbolReference.focus();
+    }
+    else if(['',' '].includes(symbolReference.value))
+    {
+        document.getElementById("message").innerHTML = "Enter valid symbols";
+        symbolReference.focus();
+    }
 }

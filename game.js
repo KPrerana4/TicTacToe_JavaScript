@@ -21,7 +21,7 @@ function start()
     disableFields();
     ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
     document.getElementById("board").style.display = "block";
-    document.getElementById("currentPlayerSymbol").innerHTML = "Current player symbol:"+player1Symbol;
+    document.getElementById("symbol").innerHTML = "Current player symbol:"+player1Symbol;
 }
 
 function areSymbolsValid()
@@ -52,7 +52,7 @@ function reset()
     document.getElementById("result").innerHTML = "";
 }
 
-function rules()
+function displayRules()
 {
     document.getElementById("list").style.display = "block";
 }
@@ -62,17 +62,13 @@ function closeRules()
     document.getElementById("list").style.display = "none";
 }
 
-function getValidSymbol(id)
-{
-    let symbolReference = document.getElementById(id);
-    if(document.getElementById("player2Symbol").value == document.getElementById("player1Symbol").value)
-    {
-        symbolReference.value = '';
-        symbolReference.focus();
-    }
-    else if(['',' '].includes(symbolReference.value))
-    {
+function validate(id){
+    let symbol = document.getElementById(id);
+    player1Symbol = document.getElementById("player1Symbol").value;
+    player2Symbol = document.getElementById("player2Symbol").value
+    if((player1Symbol == player2Symbol) || (['',' '].includes(symbol.value))){
+        symbol.value = '';
+        symbol.focus();
         document.getElementById("message").innerHTML = "Enter valid symbols";
-        symbolReference.focus();
     }
 }

@@ -31,12 +31,6 @@ class TicTacToe
         return result;
     }
 
-    /*play(position)
-    {
-        this.view.placeSymbol(position, this.currentPlayer.symbol, this.currentPlayer.playerNo);
-        return this.board.winCheck();
-    }*/
-
     switchPlayer()
     {
         let nextPlayerNo = 1 - this.currentPlayer.playerNo;

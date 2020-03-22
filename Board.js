@@ -15,8 +15,7 @@ class Board
 
     isBoardFilled()
     {
-        let grid = this.getGrid();
-        return !grid.includes(' ');
+        return !this.getGrid().includes(' ');
     }
 
     getGrid()

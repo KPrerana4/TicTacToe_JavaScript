@@ -74,3 +74,23 @@ function closeRules()
 {
     document.getElementById("list").style.display = "none";
 }
+
+function dark()
+{
+    if(document.getElementById("dark").innerHTML == "<b>Dark mode</b>")
+    {
+        modes("rgb(80,80,80)", "Normal mode", "white");
+    }
+    else
+    {
+        modes("white", "Dark mode", "blue");
+    }
+}
+
+function modes(backgroundColor, mode, fontColor)
+{
+    document.getElementsByTagName("body")[0].style.backgroundColor = backgroundColor;
+    document.getElementById("dark").innerHTML = "<b>" + mode + "</b>";
+    for(let element of document.getElementsByTagName("p"))
+        element.style.color = fontColor;
+}

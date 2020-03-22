@@ -43,6 +43,7 @@ function disableFields()
     document.getElementById("message").style.display = 'none';
     document.getElementById("player1Symbol").disabled = true;
     document.getElementById("player2Symbol").disabled = true;
+    document.getElementById("start").disabled = "true";
 }
 
 function game()
@@ -60,6 +61,7 @@ function reset()
         document.getElementById(position).innerHTML = " ";
     }
     ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
+    document.getElementById("playerDetails").innerHTML = "Current player number:1 symbol:"+player1Symbol;
     document.getElementById("result").innerHTML = "";
 }
 

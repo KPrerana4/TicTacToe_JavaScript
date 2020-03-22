@@ -18,7 +18,7 @@ class Board
         return !this.grid.includes(' ');
     }
 
-    updateGrid(position)
+    updateGrid(position,symbol)
     {
         this.grid[position] = symbol;
     }

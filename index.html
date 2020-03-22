@@ -6,10 +6,10 @@
     <link type="text/css" rel="stylesheet" href="styling.css">
 </head>
 
-<body>
+<body id="body">
 <center>
     <font size="35"><b>TicTacToe</b></font><br>
-    <br><br>
+     <br><br>
     <input id="player1Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
     <input id="player2Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player2)" size="30">
     <br>
@@ -34,9 +34,9 @@
 <center>
     <br>
     <br>
-    <p id="symbol"> </p>
+    <p id="playerDetails"> </p>
     <br>
-    <div id="board">
+    <div id="board" class="board">
       <table>
         <tr>
             <td><button id="0"> </button></td>

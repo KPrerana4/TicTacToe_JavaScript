@@ -7,9 +7,10 @@ class View
         document.getElementById(position).style.color = symbolColor;
     }
 
-    printCurrentPlayerSymbol(symbol)
+    displayCurrentPlayerDetails(playerNo, symbol)
     {
-        document.getElementById("currentPlayerSymbol").innerHTML = "Current player symbol:"+symbol;
+        let sentence = "Current player number :" + (playerNo+1) + " symbol:"+symbol;
+        document.getElementById("playerDetails").innerHTML = sentence;
     }
 
     printWinner(sentence)

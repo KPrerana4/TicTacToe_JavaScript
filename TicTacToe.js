@@ -10,31 +10,32 @@ class TicTacToe
         this.win = false;
     }
 
-    start(position)
+    play(position)
     {
         if(this.win)
             return;
-        this.win = this.play(position);
+        this.view.placeSymbol(position, this.currentPlayer.symbol, this.currentPlayer.playerNo);
+        this.win = this.board.winCheck();
         this.view.printWinner(this.getResult());
         this.switchPlayer();
-        this.view.printCurrentPlayerSymbol(this.currentPlayer.symbol);
+        this.view.printCurrentPlayerSymbol(this.currentPlayer.getSymbol());
     }
 
     getResult()
     {
         let result = "";
         if(this.win)
-            result = "player with symbol \'" + this.currentPlayer.symbol + "\' has Won";
+            result = "player with symbol \'" + this.currentPlayer.getSymbol() + "\' has Won";
         else if(this.board.isBoardFilled())
             result = "No one Won";
         return result;
     }
 
-    play(position)
+    /*play(position)
     {
         this.view.placeSymbol(position, this.currentPlayer.symbol, this.currentPlayer.playerNo);
         return this.board.winCheck();
-    }
+    }*/
 
     switchPlayer()
     {

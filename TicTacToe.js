@@ -15,6 +15,7 @@ class TicTacToe
         if(this.win)
             return;
         this.view.placeSymbol(position, this.currentPlayer.symbol, this.currentPlayer.playerNo);
+        this.board.updateGrid(position, this.currentPlayer.symbol);
         this.win = this.board.winCheck();
         this.view.printWinner(this.getResult());
         this.switchPlayer();

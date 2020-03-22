@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="styling.css">
 </head>
 
-<body id="body">
+<body>
 <center>
     <font size="35"><b>TicTacToe</b></font><br>
      <br><br>
@@ -16,7 +16,8 @@
     <p id="message"> </p>
     <br>
     <button id="start" onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
-    <button onclick="displayRules()" class="normal"><b>Rules</b></button>
+    <button onclick="displayRules()" class="normal"><b>Rules</b></button> &nbsp; &nbsp; &nbsp;
+    <button class="dark normal" id="dark" onclick="dark(this.id)"><b>Dark mode</b></button>
 </center>
     <div class="rulesList" id="list">
         <font size="5px;"><u>Rules</u></font>

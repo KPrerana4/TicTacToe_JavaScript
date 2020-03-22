@@ -3,28 +3,23 @@ class Board
     constructor(winningConditions)
     {
         this.winningConditions = winningConditions;
+        this.grid = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
     }
 
     winCheck()
     {
-        let grid = this.getGrid();
         return this.winningConditions.some((element) => {
-            return ((grid[element[0]] == grid[element[1]]) && (grid[element[1]] == grid[element[2]]) && (grid[element[0]] != ' '));
-        },grid);
+            return ((this.grid[element[0]] == this.grid[element[1]]) && (this.grid[element[1]] == this.grid[element[2]]) && (this.grid[element[0]] != ' '));
+        },this.grid);
     }
 
     isBoardFilled()
     {
-        return !this.getGrid().includes(' ');
+        return !this.grid.includes(' ');
     }
 
-    getGrid()
+    updateGrid(position)
     {
-        let grid = [];
-        for(let position = 0; position < 9 ;position++)
-        {
-            grid[position] = document.getElementById(position).innerHTML;
-        }
-        return grid;
+        this.grid[position] = symbol;
     }
 }

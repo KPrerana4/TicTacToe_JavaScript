@@ -19,7 +19,7 @@ class TicTacToe
         this.win = this.board.winCheck();
         this.view.printWinner(this.getResult());
         this.switchPlayer();
-        this.view.printCurrentPlayerSymbol(this.currentPlayer.getSymbol());
+        this.view.displayCurrentPlayerDetails(this.currentPlayer.playerNo, this.currentPlayer.getSymbol());
     }
 
     getResult()

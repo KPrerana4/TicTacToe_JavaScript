@@ -8,58 +8,75 @@
 
 <body>
 <center>
-    <font size="35"><b>TicTacToe</b></font><br>
-     <br><br>
-    <input id="player1Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
-    <input id="player2Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player2)" size="30">
-    <br>
-    <p id="message"> </p>
-    <br>
-    <button id="start" onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
-    <button onclick="displayRules()" class="normal"><b>Rules</b></button> &nbsp; &nbsp; &nbsp;
-    <button class="dark normal" id="dark" onclick="dark(this.id)"><b>Dark mode</b></button>
+    <font size="36"><b>TicTacToe</b></font><br>
+    <br><br>
 </center>
-    <div class="rulesList" id="list">
-        <font size="5px;"><u>Rules</u></font>
-        <ol>
-            <li>Player has to enter symbols.</li>
-            <li>Symbols should not be a space or a empty character.</li>
-            <li>Player has to click on start button to start the game.</li>
-            <li>After clicking start they get a board to play.</li>
-            <li>click on the cell to place their symbol.</li>
-            <li>If the whole board is full and none of the players has won then "No one Won" message will be displayed, otherwise winning message will be displayed.</li>
-            <li>Winning condition is "all cells in row or column or diagonal should have same symbol".</li>
-        </ol>
-        <button class="close" onclick="closeRules()">close</button>
+<div class="container">
+    <div id="gameScore">
+        <center>
+            <font size="7"><b><u>Scores</u></b></font><br></center><br>
+        <font class="scores" size="6" ><b>Player 1 : </b></font>
+            <font class="scores" size="6" id="player0">0</font><br><br>
+        <font class="scores" size="6" ><b>player 2 : </b></font>
+            <font class="scores" size="6" id="player1">0</font><br><br>
+        <font class="scores" size="6" ><b>Tie : </b></font>
+            <font class="scores" size="6" id="tie">0</font>
     </div>
-<center>
-    <br>
-    <br>
-    <p id="playerDetails"> </p>
-    <br>
-    <div id="board" class="board">
-      <table>
-        <tr>
-            <td><button id="0"> </button></td>
-            <td><button id="1"> </button></td>
-            <td><button id="2"> </button></td>
-        </tr>
-        <tr>
-            <td><button id="3"> </button></td>
-            <td><button id="4"> </button></td>
-            <td><button id="5"> </button></td>
-        </tr>
-        <tr>
-            <td><button id="6"> </button></td>
-            <td><button id="7"> </button></td>
-            <td><button id="8"> </button></td>
-        </tr>
-      </table>
-    <br>
-    <p id="result"></p>
-    <button onclick="reset()" class="normal"><b>Reset</b></button>
+
+    <div style="width:700px;"><center>
+        <input id="player1Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
+        <input id="player2Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player2)" size="30">
+        <br>
+        <p id="message"> </p>
+        <br>
+        <button id="start" onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
+        <button onclick="displayRules()" class="normal"><b>Rules</b></button> &nbsp; &nbsp; &nbsp;
+        <button class="changeMode normal" id="mode" onclick="changeMode(this.id)"><b>Normal mode</b></button>
+        </center>
+        <div id="list">
+            <font size="5px;"><u>Rules</u></font>
+            <ol>
+                <li>Player has to enter symbols.</li>
+                <li>Symbols should not be a space or a empty character.</li>
+                <li>Player has to click on start button to start the game.</li>
+                <li>After clicking start they get a board to play.</li>
+                <li>click on the cell to place their symbol.</li>
+                <li>If the whole board is full and none of the players has won then "No one Won" message will be displayed, otherwise winning message will be displayed.</li>
+                <li>Winning condition is "all cells in row or column or diagonal should have same symbol".</li>
+            </ol>
+            <button class="close" onclick="closeRules()">close</button>
+        </div>
+
+        <center>
+            <br>
+            <p id="playerDetails"> </p>
+            <br>
+            <div id="board">
+                <table>
+                    <tr>
+                        <td><button id="0"> </button></td>
+                        <td><button id="1"> </button></td>
+                        <td><button id="2"> </button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="3"> </button></td>
+                        <td><button id="4"> </button></td>
+                        <td><button id="5"> </button></td>
+                    </tr>
+                    <tr>
+                        <td><button id="6"> </button></td>
+                        <td><button id="7"> </button></td>
+                        <td><button id="8"> </button></td>
+                    </tr>
+                </table>
+                <br>
+                <p id="result"></p>
+                <button onclick="reset()" class="normal"><b>Reset</b></button> &nbsp; &nbsp;
+            </div>
+        </center>
+
     </div>
-</center>
+</div>
 </body>
 
 <script src = "game.js"></script>

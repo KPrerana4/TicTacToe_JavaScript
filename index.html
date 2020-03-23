@@ -13,8 +13,7 @@
 </center>
 <div class="container">
     <div id="gameScore">
-        <center>
-            <font size="7"><b><u>Scores</u></b></font><br></center><br>
+            <font size="7"><b><u>Scores</u></b></font><br><br>
         <font class="scores" size="6" ><b>Player 1 : </b></font>
             <font class="scores" size="6" id="player0">0</font><br><br>
         <font class="scores" size="6" ><b>player 2 : </b></font>
@@ -23,21 +22,22 @@
             <font class="scores" size="6" id="tie">0</font>
     </div>
 
-    <div style="width:700px;"><center>
-        <input id="player1Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30"> &nbsp;
+    <div id="centerPart"><center>
+        <input id="player1Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player1)" size="30">
         <input id="player2Symbol" onchange="validate(this.id)" type="text" placeholder="Enter symbol(for player2)" size="30">
         <br>
         <p id="message"> </p>
         <br>
-        <button id="start" onclick="start()" class="normal"><b>Start</b></button> &nbsp; &nbsp; &nbsp;
-        <button onclick="displayRules()" class="normal"><b>Rules</b></button> &nbsp; &nbsp; &nbsp;
-        <button class="changeMode normal" id="mode" onclick="changeMode(this.id)"><b>Normal mode</b></button>
+            <button id="start" onclick="start()" class="normal"><b>Start</b></button>
+            <button onclick="displayRules()" class="normal"><b>Rules</b></button>
+            <button class="changeMode normal" id="mode" onclick="changeMode()"><b>Normal mode</b></button>
         </center>
         <div id="list">
             <font size="5px;"><u>Rules</u></font>
             <ol>
                 <li>Player has to enter symbols.</li>
                 <li>Symbols should not be a space or a empty character.</li>
+                <li>Maximum length of symbol is 4 characters.</li>
                 <li>Player has to click on start button to start the game.</li>
                 <li>After clicking start they get a board to play.</li>
                 <li>click on the cell to place their symbol.</li>
@@ -71,18 +71,18 @@
                 </table>
                 <br>
                 <p id="result"></p>
-                <button onclick="reset()" class="normal"><b>Reset</b></button> &nbsp; &nbsp;
+                <button onclick="reset()" class="normal"><b>Reset</b></button>
             </div>
         </center>
 
     </div>
 </div>
 </body>
-
-<script src = "game.js"></script>
-<script src = "view.js"></script>
-<script src = "TicTacToe.js"></script>
-<script src = "Board.js"></script>
-<script src = "Player.js"></script>
+<script src = "javascript/main.js"></script>
+<script src = "javascript/game.js"></script>
+<script src = "javascript/view.js"></script>
+<script src = "javascript/TicTacToe.js"></script>
+<script src = "javascript/Board.js"></script>
+<script src = "javascript/Player.js"></script>
 
 </html>

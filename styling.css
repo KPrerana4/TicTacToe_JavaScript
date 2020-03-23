@@ -1,48 +1,82 @@
-        /*font{
-            color : rgb(20, 205, 222);
-        }*/
-        button{
-            height:130px;
-            width:130px;
-            font-size:35px;
-        }
-        p{
-            font-size:25px;
-            color:blue;
-        }
-        input{
-            border:1px solid black;
-            padding:5px;
-            font-size:20px;
-            height:35px;
-        }
-        .normal{
-            border-radius:4px;
-            background:white;
-            border:1px solid black;
-            height:40px;
-            width:55px;
-            font-size:15px;
-            background:rgb(20, 222, 222);
-        }
-
-        div{
-            display : none;
-        }
-
-        ol{
-            width:620px;
-            height:300px;
-            font-size:22px;
-            padding-right:5px;
-        }
-
-        .rulesList{
-            margin:15px;
-            border:2px dashed black;
-            border-radius:6px;
-            width:700px;
-            height:410px;
-            padding-bottom:5px;
-            color:blue;
-        }
+font{
+    color:red;
+}
+button{
+    height:125px;
+    width:125px;
+    font-size:35px;
+}
+p{
+    font-size:25px;
+    color:white;
+}
+input{
+    border:1px solid black;
+    padding:5px;
+    font-size:20px;
+    height:35px;
+}
+.normal{
+    border-radius:4px;
+    background:white;
+    border:1px solid black;
+    height:40px;
+    width:55px;
+    font-size:15px;
+    background:rgb(20, 222, 222);
+}
+ol{
+    width:620px;
+    height:300px;
+    font-size:22px;
+    padding-right:5px;
+}
+#list{
+    margin:15px;
+    border:2px dashed black;
+    border-radius:6px;
+    width:700px;
+    height:410px;
+    color:blue;
+    background:white;
+    display:none;
+    margin-left:100px;
+}
+.close{
+    border-radius:4px;
+    background:white;
+    border:1px solid black;
+    height:40px;
+    width:55px;
+    font-size:15px;
+    background:rgb(20, 222, 222);
+    float:right;
+}
+.changeMode{
+    width:160px;
+}
+.container{
+    display:grid;
+    grid-template-columns:auto auto;
+}
+#board{
+    display:none;
+}
+#gameScore{
+    height:500px;
+    padding-left:10px;
+}
+body{
+    background:rgb(80,80,80);
+}
+.scores{
+    color:rgb(237, 185, 12);
+}
+#buttons{
+    display:grid;
+    grid-template-columns:auto auto auto;
+    grid-column-gap:0px;
+}
+#centerPart{
+    width:900px;
+}

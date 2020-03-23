@@ -61,7 +61,7 @@ function reset()
         document.getElementById(position).innerHTML = " ";
     }
     ticTacToe = new TicTacToe(player1Symbol, player2Symbol);
-    document.getElementById("playerDetails").innerHTML = "Current player number:1 symbol:"+player1Symbol;
+    document.getElementById("playerDetails").innerHTML = "Current player:1 symbol:"+player1Symbol;
     document.getElementById("result").innerHTML = "";
 }
 
@@ -75,14 +75,12 @@ function closeRules()
     document.getElementById("list").style.display = "none";
 }
 
-function dark()
+function changeMode()
 {
-    if(document.getElementById("dark").innerHTML == "<b>Dark mode</b>")
-    {
+    if(document.getElementById("mode").innerHTML == "<b>Dark mode</b>"){
         modes("rgb(80,80,80)", "Normal mode", "white");
     }
-    else
-    {
+    else{
         modes("white", "Dark mode", "blue");
     }
 }
@@ -90,7 +88,7 @@ function dark()
 function modes(backgroundColor, mode, fontColor)
 {
     document.getElementsByTagName("body")[0].style.backgroundColor = backgroundColor;
-    document.getElementById("dark").innerHTML = "<b>" + mode + "</b>";
+    document.getElementById("mode").innerHTML = "<b>" + mode + "</b>";
     for(let element of document.getElementsByTagName("p"))
         element.style.color = fontColor;
 }

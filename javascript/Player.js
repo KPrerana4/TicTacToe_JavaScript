@@ -4,7 +4,7 @@ class Player
     {
         this.symbol = symbol;
         this.playerNo = playerNo;
-        this.score = 0;   //==========
+        this.score = 0;
     }
 
     getSymbol()

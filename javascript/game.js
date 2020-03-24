@@ -6,8 +6,8 @@ for(let position = 0; position < 9 ; position++)
     document.getElementById(position).addEventListener("click", game);
 }
 
-function validate(id){
-    let symbol = document.getElementById(id);
+function validate(){
+    let symbol = document.getElementById(event.target.id);
     player1Symbol = document.getElementById("player1Symbol").value;
     player2Symbol = document.getElementById("player2Symbol").value;
     if((player1Symbol == player2Symbol) || (['',' '].includes(symbol.value)) || symbol.value.length > 4){
